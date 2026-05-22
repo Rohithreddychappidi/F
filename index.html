@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Land — Building Prosperity, One Investment At A Time</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Outfit',sans-serif;
+  min-height:100vh;
+  background:linear-gradient(145deg,#f8f4ee 0%,#efe8dc 25%,#f5ede3 55%,#faf6f0 100%);
+  background-attachment:fixed;
+  color:#2c2319;
+  overflow-x:hidden;
+}
+:root{
+  --clay-bg:linear-gradient(145deg,#faf6f0,#f0e8dc);
+  --clay-s:14px 14px 28px rgba(180,155,120,0.30),-10px -10px 22px rgba(255,255,255,0.90);
+  --clay-in:inset 2px 2px 5px rgba(255,255,255,0.65),inset -2px -2px 4px rgba(180,155,120,0.16);
+  --clay-hov:6px 6px 14px rgba(180,155,120,0.40),-6px -6px 14px rgba(255,255,255,0.95),inset 3px 3px 7px rgba(255,255,255,0.70),inset -2px -2px 5px rgba(180,155,120,0.22);
+  --glass:rgba(255,255,255,0.18);
+  --gb:rgba(255,255,255,0.32);
+  --blur:blur(22px);
+  --gold:#b08d4f;
+  --gl:#c9a96e;
+  --gd:#8b6f3a;
+  --br:#2c2319;
+  --mid:#5a4a3a;
+  --mt:#9a8570;
+  --cr:#faf6f0;
+  --sa:#efe8dc;
+  --grn:#3d6e2e;
+  --grl:#5a9645;
+  --rxl:28px;
+  --rlg:20px;
+  --rmd:14px;
+}
+.blob-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.52;animation:bf 10s ease-in-out infinite;}
+.b1{width:380px;height:380px;background:rgba(201,169,110,0.38);top:5%;left:3%;animation-delay:0s;}
+.b2{width:280px;height:280px;background:rgba(180,155,200,0.26);top:45%;right:5%;animation-delay:-4s;}
+.b3{width:240px;height:240px;background:rgba(140,195,175,0.26);bottom:8%;left:28%;animation-delay:-7s;}
+.b4{width:200px;height:200px;background:rgba(201,169,110,0.20);top:70%;right:30%;animation-delay:-2s;}
+@keyframes bf{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-22px) scale(1.06);}}
+.clay{background:var(--clay-bg);box-shadow:var(--clay-s);border-radius:var(--rxl);position:relative;}
+.clay::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--clay-in);pointer-events:none;}
+.cbtn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  background:linear-gradient(145deg,#f0e6d3,#e6dac8);
+  box-shadow:8px 8px 18px rgba(180,155,120,.36),-8px -8px 18px rgba(255,255,255,.88),inset 2px 2px 4px rgba(255,255,255,.65),inset -1px -1px 3px rgba(180,155,120,.18);
+  border:none;border-radius:50px;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#4a3c2e;padding:.85rem 2rem;
+  transition:all .3s ease;text-decoration:none;
+}
+.cbtn:hover{box-shadow:var(--clay-hov);transform:translateY(-2px);color:var(--gd);}
+.cbtn-dk{background:linear-gradient(145deg,#3a2e22,#2c2319);box-shadow:8px 8px 18px rgba(30,20,10,.45),-4px -4px 12px rgba(80,60,40,.20),inset 2px 2px 4px rgba(90,70,50,.28),inset -1px -1px 3px rgba(0,0,0,.38);color:var(--gl);}
+.cbtn-dk:hover{box-shadow:10px 10px 22px rgba(30,20,10,.50),-5px -5px 14px rgba(80,60,40,.22),inset 3px 3px 6px rgba(90,70,50,.32),inset -2px -2px 4px rgba(0,0,0,.42);color:#e0c07a;transform:translateY(-2px);}
+.cbtn-gr{background:linear-gradient(145deg,#d4eccc,#c4e0ba);box-shadow:8px 8px 18px rgba(80,140,70,.28),-8px -8px 18px rgba(255,255,255,.90),inset 2px 2px 4px rgba(255,255,255,.65),inset -1px -1px 3px rgba(80,140,70,.18);color:#2e5a22;}
+.cbtn-gr:hover{box-shadow:5px 5px 12px rgba(80,140,70,.38),-5px -5px 12px rgba(255,255,255,.95),inset 3px 3px 6px rgba(255,255,255,.70),inset -2px -2px 4px rgba(80,140,70,.28);color:#1e4814;transform:translateY(-2px);}
+.glass{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--gb);box-shadow:0 10px 40px rgba(0,0,0,.08),inset 0 1px 0 rgba(255,255,255,.50);}
+.page{display:none;}
+.page.active{display:block;animation:pgIn .45s ease both;}
+@keyframes pgIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.ani{animation:fu .72s ease both;}
+.d1{animation-delay:.10s;}.d2{animation-delay:.22s;}.d3{animation-delay:.34s;}.d4{animation-delay:.46s;}.d5{animation-delay:.58s;}
+@keyframes fu{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+#nb{position:fixed;top:16px;left:16px;right:16px;z-index:200;border-radius:var(--rlg);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;transition:all .35s ease;}
+.nb-logo{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gl),var(--gd));display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 8px rgba(140,110,60,.38),-2px -2px 6px rgba(255,255,255,.68);}
+.nb-logo svg{width:14px;height:14px;}
+.nb-brand{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:600;color:var(--br);cursor:pointer;}
+.nb-brand em{font-style:normal;color:var(--gold);}
+.nl-row{display:flex;align-items:center;gap:2rem;}
+.nl{font-size:.78rem;font-weight:500;letter-spacing:.08em;color:var(--mid);cursor:pointer;text-transform:uppercase;transition:color .25s;text-decoration:none;position:relative;padding-bottom:2px;}
+.nl::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+.nl:hover{color:var(--gold);}.nl:hover::after{transform:scaleX(1);}
+.nl.act{color:var(--gd);}.nl.act::after{transform:scaleX(1);}
+.nl-cta{padding:.52rem 1.3rem;border-radius:50px;background:linear-gradient(145deg,#f0e6d3,#e6dac8);box-shadow:5px 5px 12px rgba(180,155,120,.32),-4px -4px 10px rgba(255,255,255,.85),inset 2px 2px 4px rgba(255,255,255,.60);color:#4a3c2e;letter-spacing:.1em;font-size:.76rem !important;}
+.nl-cta::after{display:none !important;}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.ham span{width:22px;height:2px;background:var(--mid);border-radius:2px;display:block;transition:all .3s;}
+.mob{display:none;flex-direction:column;position:fixed;top:96px;left:16px;right:16px;z-index:199;border-radius:var(--rxl);padding:1.5rem 2rem;}
+.mob.open{display:flex;}
+.mob .nl{padding:.7rem 0;border-bottom:1px solid rgba(180,155,120,.14);font-size:.9rem;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+.sec{padding:5rem 0;position:relative;z-index:1;}
+.eyebrow{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mt);margin-bottom:.9rem;display:block;}
+.eyebrow.gld{color:var(--gold);}
+.eyebrow.grn{color:var(--grl);}
+.h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;line-height:1.1;color:var(--br);}
+.h1 em{font-style:italic;color:var(--gold);}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:500;line-height:1.18;color:var(--br);}
+.h2 em{font-style:italic;color:var(--gold);}
+.h2.gem em{color:var(--grl);}
+.body-t{font-size:.93rem;color:var(--mt);line-height:1.85;font-weight:300;}
+.cdiv{width:50px;height:4px;border-radius:4px;margin:1.4rem 0;background:linear-gradient(90deg,var(--gl),rgba(201,169,110,.1));box-shadow:2px 2px 5px rgba(180,155,120,.28),-1px -1px 3px rgba(255,255,255,.78);}
+.cdiv.c{margin-left:auto;margin-right:auto;}
+.cdiv.gr{background:linear-gradient(90deg,var(--grl),rgba(90,150,69,.08));}
+.mapbtn{display:inline-flex;align-items:center;gap:.55rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gl);border:1px solid rgba(201,169,110,.32);padding:.62rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:500;transition:background .25s,color .25s,border-color .25s;margin-top:1.5rem;}
+.mapbtn:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
+.mapbtn.gr{color:var(--grl);border-color:rgba(90,150,69,.32);}
+.mapbtn.gr:hover{background:var(--grl);color:#fff;border-color:var(--grl);}
+.hero-with-bg{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;}
+.hero-bg-img::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(44,35,25,0.75) 0%, rgba(44,35,25,0.45) 50%, rgba(44,35,25,0.85) 100%);}
+.hero-content{position:relative;z-index:2;text-align:center;padding:7rem 2rem 12rem;}
+.hero-content .h1{color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.4);}
+.hero-content .eyebrow{color:var(--gl);text-shadow:1px 1px 4px rgba(0,0,0,0.3);}
+.hero-content .hero-sub{color:rgba(255,255,255,0.90);text-shadow:1px 1px 4px rgba(0,0,0,0.3);}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 12rem;position:relative;z-index:1;}
+.hero-sub{font-size:1.05rem;color:var(--mt);font-weight:300;max-width:520px;margin:1.6rem auto;line-height:1.78;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;margin:0 2rem;border-radius:var(--rxl);overflow:hidden;position:relative;z-index:1;}
+.stat{background:var(--clay-bg);box-shadow:var(--clay-s);padding:2rem 3rem;text-align:center;flex:1;min-width:160px;position:relative;}
+.stat::before{content:'';position:absolute;inset:0;background:var(--clay-in);pointer-events:none;}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:var(--gd);line-height:1;}
+.stat-l{font-size:.7rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-top:.4rem;}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+.pc{border-radius:var(--rxl);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4;box-shadow:var(--clay-s);transition:transform .4s ease,box-shadow .4s ease;}
+.pc:hover{transform:translateY(-8px);box-shadow:20px 20px 40px rgba(180,155,120,.38),-12px -12px 28px rgba(255,255,255,.88);}
+.pc-bg{position:absolute;inset:0;transition:transform .6s ease;}
+.pc:hover .pc-bg{transform:scale(1.05);}
+.pc-e .pc-bg{background:linear-gradient(160deg,#1a1408 0%,#2c200a 45%,#1a1a0a 100%);}
+.pc-t .pc-bg{background:linear-gradient(160deg,#0c1a08 0%,#18300e 45%,#0e200a 100%);}
+.pc-noise{position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");}
+.pc-glow-e{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.24) 0%,transparent 65%);}
+.pc-glow-t{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(90,150,60,.26) 0%,transparent 65%);}
+.pc-badge{position:absolute;top:1.5rem;right:1.5rem;z-index:3;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;border-radius:50px;backdrop-filter:blur(10px);}
+.pc-e .pc-badge{background:rgba(201,169,110,.16);color:var(--gl);border:1px solid rgba(201,169,110,.28);}
+.pc-t .pc-badge{background:rgba(90,150,60,.18);color:#7cc870;border:1px solid rgba(90,150,60,.28);}
+.pc-content{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:3rem 2rem 2rem;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);}
+.pc-tag{font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.6rem;}
+.pc-e .pc-tag{color:var(--gl);}
+.pc-t .pc-tag{color:#7cc870;}
+.pc-name{font-family:'Playfair Display',serif;font-size:3rem;font-weight:600;color:#fff;line-height:1;margin-bottom:.45rem;transition:transform .3s ease;}
+.pc:hover .pc-name{transform:translateY(-4px);}
+.pc-sub{font-size:.8rem;color:rgba(255,255,255,.48);font-weight:300;margin-bottom:1.1rem;}
+.pc-arr{display:inline-flex;align-items:center;gap:.42rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:gap .3s ease;}
+.pc:hover .pc-arr{gap:.8rem;}
+.pc-e .pc-arr{color:var(--gl);}
+.pc-t .pc-arr{color:#7cc870;}
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.8rem;}
+.svc{padding:2.5rem 2rem;border-radius:var(--rxl);transition:transform .3s,box-shadow .3s;}
+.svc:hover{transform:translateY(-5px);box-shadow:16px 16px 32px rgba(180,155,120,.32),-10px -10px 22px rgba(255,255,255,.92);}
+.svc-ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1.3rem;background:linear-gradient(145deg,rgba(201,169,110,.16),rgba(201,169,110,.04));box-shadow:4px 4px 10px rgba(180,155,120,.22),-3px -3px 8px rgba(255,255,255,.78);}
+.svc-t{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--br);margin-bottom:.45rem;}
+.svc-d{font-size:.84rem;color:var(--mt);line-height:1.72;font-weight:300;}
+.trust-band{border-radius:var(--rxl);background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:14px 14px 28px rgba(30,20,10,.42),-6px -6px 18px rgba(255,255,255,.06);padding:4.5rem 4rem;text-align:center;position:relative;z-index:1;overflow:hidden;}
+.trust-band::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");opacity:.6;pointer-events:none;}
+.tb-q{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:400;font-style:italic;color:rgba(255,255,255,.86);line-height:1.45;position:relative;}
+.tb-q strong{font-style:normal;font-weight:700;color:var(--gl);}
+.tb-s{font-size:.73rem;color:rgba(255,255,255,.32);letter-spacing:.18em;text-transform:uppercase;margin-top:1.1rem;position:relative;}
+.ab-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.ab-fc{padding:2.5rem;border-radius:var(--rxl);}
+.ab-fc-h{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+.ab-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.25rem;}
+.ab-ic{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;background:linear-gradient(145deg,rgba(201,169,110,.18),rgba(201,169,110,.04));box-shadow:3px 3px 8px rgba(180,155,120,.18),-2px -2px 6px rgba(255,255,255,.72);}
+.ab-rs{font-size:.9rem;font-weight:600;color:var(--br);margin-bottom:.14rem;}
+.ab-rd{font-size:.82rem;color:var(--mt);line-height:1.55;}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.8rem;}
+.vcrd{padding:2.2rem 1.8rem;border-radius:var(--rxl);text-align:center;transition:transform .3s,box-shadow .3s;}
+.vcrd:hover{transform:translateY(-5px);}
+.v-ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto 1rem;background:linear-gradient(145deg,rgba(201,169,110,.14),rgba(201,169,110,.03));box-shadow:3px 3px 8px rgba(180,155,120,.18),-2px -2px 6px rgba(255,255,255,.75);}
+.v-t{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--br);margin-bottom:.4rem;}
+.v-d{font-size:.81rem;color:var(--mt);line-height:1.68;}
+.ms-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.mpull{border-radius:var(--rxl);padding:2.4rem;background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:12px 12px 24px rgba(30,20,10,.38),-4px -4px 12px rgba(255,255,255,.04);margin-top:2rem;}
+.mpull p{font-family:'Playfair Display',serif;font-size:1.28rem;font-style:italic;color:rgba(255,255,255,.80);line-height:1.5;}
+.mpull p strong{font-style:normal;color:var(--gl);}
+.ngrid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.nc{padding:2.2rem;border-radius:var(--rxl);text-align:center;background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:10px 10px 20px rgba(30,20,10,.38),-4px -4px 10px rgba(255,255,255,.04);position:relative;overflow:hidden;}
+.nc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gl),transparent);}
+.nc-n{font-family:'Playfair Display',serif;font-size:2.7rem;font-weight:700;color:var(--gl);line-height:1;}
+.nc-l{font-size:.68rem;color:rgba(255,255,255,.38);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem;}
+.el-split{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
+.el-script{font-family:'Playfair Display',serif;font-style:italic;font-size:7rem;font-weight:400;color:rgba(176,141,79,.07);line-height:1;margin-bottom:-1.6rem;user-select:none;letter-spacing:-.02em;}
+.el-lbl{display:inline-flex;align-items:center;gap:.45rem;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
+.el-lbl-dot{width:6px;height:6px;background:var(--gl);border-radius:50%;}
+.el-h{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,4.6rem);font-weight:600;line-height:1.08;color:var(--br);}
+.el-h em{font-style:italic;color:var(--gold);}
+.el-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--mt);margin-bottom:1.4rem;margin-top:.4rem;}
+.el-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;border-radius:var(--rxl);overflow:hidden;box-shadow:var(--clay-s);margin-top:2rem;}
+.ef{background:var(--clay-bg);padding:1.6rem;text-align:center;position:relative;}
+.ef::before{content:'';position:absolute;inset:0;background:var(--clay-in);pointer-events:none;}
+.ef-n{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:700;color:var(--gd);line-height:1;}
+.ef-l{font-size:.67rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;}
+.el-rc{padding:2.5rem;border-radius:var(--rxl);}
+.loan{border-radius:var(--rlg);padding:2rem;text-align:center;margin-bottom:2rem;background:linear-gradient(145deg,rgba(201,169,110,.14),rgba(201,169,110,.04));box-shadow:6px 6px 14px rgba(180,155,120,.22),-4px -4px 10px rgba(255,255,255,.83),inset 1px 1px 3px rgba(255,255,255,.48);}
+.loan-p{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--gd);line-height:1;}
+.loan-s{font-size:.7rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem;}
+.fl{list-style:none;}
+.fl li{display:flex;align-items:center;gap:.82rem;padding:.68rem 0;border-bottom:1px solid rgba(180,155,120,.13);font-size:.86rem;color:var(--mid);}
+.fl li:last-child{border-bottom:none;}
+.fl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--gl);box-shadow:1px 1px 4px rgba(180,155,120,.36),-1px -1px 3px rgba(255,255,255,.76);}
+.amen-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.8rem;}
+.ac{padding:1.8rem 1.4rem;border-radius:var(--rxl);transition:transform .3s,box-shadow .3s;text-align:center;}
+.ac:hover{transform:translateY(-4px);}
+.ac-t{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--br);margin-bottom:.28rem;margin-top:.55rem;}
+.ac-d{font-size:.78rem;color:var(--mt);line-height:1.58;}
+.ac-icon{font-size:.9rem;letter-spacing:.08em;font-weight:500;color:var(--gold);font-family:'Outfit',sans-serif;display:block;margin-bottom:.2rem;}
+.sight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.8rem;}
+.sight-col{padding:2rem;border-radius:var(--rxl);}
+.sc-t{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--br);margin-bottom:1rem;border-bottom:1px solid rgba(180,155,120,.18);padding-bottom:.7rem;}
+.sc-list{list-style:none;}
+.sc-list li{font-size:.82rem;color:var(--mt);line-height:1.6;padding:.3rem 0;border-bottom:1px solid rgba(180,155,120,.08);display:flex;gap:.5rem;}
+.sc-list li:last-child{border-bottom:none;}
+.sc-list li::before{content:'–';color:var(--gold);flex-shrink:0;}
+.loc-dk{border-radius:var(--rxl);background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:14px 14px 28px rgba(30,20,10,.40),-6px -6px 18px rgba(255,255,255,.05);padding:3.5rem;position:relative;z-index:1;}
+.loc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:2.5rem;}
+.lc-t{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gl);margin-bottom:1.1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(201,169,110,.18);}
+.li-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.055);}
+.li-row:last-child{border-bottom:none;}
+.li-n{font-size:.83rem;color:rgba(255,255,255,.58);}
+.li-t{font-size:.78rem;color:var(--gl);font-weight:500;}
+.th-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.th-lbl{display:inline-flex;align-items:center;gap:.45rem;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grl);margin-bottom:1.2rem;}
+.th-lbl-dot{width:6px;height:6px;background:var(--grl);border-radius:50%;}
+.th-h{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,4.6rem);font-weight:600;line-height:1.08;color:var(--br);}
+.th-h strong{font-weight:700;color:var(--grn);display:block;}
+.th-mn{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;color:var(--grl);margin-bottom:1.3rem;}
+.th-tcard{border-radius:var(--rmd);padding:1.3rem 1.7rem;margin-bottom:1.8rem;border-left:3px solid var(--grl);background:linear-gradient(145deg,rgba(90,150,69,.09),rgba(90,150,69,.02));box-shadow:4px 4px 10px rgba(80,140,60,.12),-3px -3px 8px rgba(255,255,255,.78);}
+.th-tcard p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--br);}
+.th-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;border-radius:var(--rxl);overflow:hidden;box-shadow:var(--clay-s);margin-bottom:2rem;}
+.tp{background:var(--clay-bg);padding:1.4rem;position:relative;text-align:center;}
+.tp::before{content:'';position:absolute;inset:0;background:var(--clay-in);pointer-events:none;}
+.tp-l{font-size:.66rem;color:var(--mt);text-transform:uppercase;letter-spacing:.1em;}
+.tp-v{font-size:.88rem;color:var(--br);font-weight:500;margin-top:.14rem;}
+.th-right{display:flex;flex-direction:column;gap:1.2rem;}
+.th-fc{border-radius:var(--rlg);padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.2rem;transition:transform .3s ease,box-shadow .3s ease;}
+.th-fc:hover{transform:translateX(4px);}
+.th-fc-dot{width:3px;border-radius:3px;background:var(--grl);flex-shrink:0;align-self:stretch;min-height:40px;}
+.th-fc-t{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--br);margin-bottom:.28rem;}
+.th-fc-d{font-size:.82rem;color:var(--mt);line-height:1.6;}
+.th-ag{padding:2rem;border-radius:var(--rxl);}
+.th-ag-t{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--br);margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid rgba(90,150,69,.2);}
+.th-ag-l{list-style:none;}
+.th-ag-l li{font-size:.83rem;color:var(--mt);line-height:1.6;padding:.35rem 0;border-bottom:1px solid rgba(180,155,120,.1);display:flex;gap:.5rem;}
+.th-ag-l li:last-child{border-bottom:none;}
+.th-ag-l li::before{content:'—';color:var(--grl);flex-shrink:0;font-size:.75rem;}
+.th-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.8rem;}
+.loc-gr{border-radius:var(--rxl);background:linear-gradient(145deg,#0c1a08,#18300e);box-shadow:14px 14px 28px rgba(10,25,8,.38),-4px -4px 14px rgba(255,255,255,.03);padding:3.5rem;position:relative;z-index:1;}
+.lg-t{font-family:'Playfair Display',serif;font-size:1rem;color:#7cc870;margin-bottom:1.1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(124,200,112,.18);}
+.lg-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.055);}
+.lg-row:last-child{border-bottom:none;}
+.lg-n{font-size:.83rem;color:rgba(255,255,255,.58);}
+.lg-t2{font-size:.78rem;color:#7cc870;font-weight:500;}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.ct-card{padding:2.5rem;border-radius:var(--rxl);}
+.ct-row{display:flex;gap:1rem;margin-bottom:1.35rem;align-items:flex-start;}
+.ct-ic{width:42px;height:42px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:4px 4px 10px rgba(30,20,10,.28),-2px -2px 6px rgba(255,255,255,.48);}
+.ct-l{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mt);margin-bottom:.18rem;}
+.ct-v{font-size:.89rem;color:var(--br);line-height:1.6;}
+.ct-v a{color:var(--br);text-decoration:none;transition:color .25s;}
+.ct-v a:hover{color:var(--gold);}
+.hrs{padding:2rem;border-radius:var(--rxl);margin-top:1.5rem;}
+.hrs-t{font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.hrs-r{display:flex;justify-content:space-between;padding:.52rem 0;border-bottom:1px solid rgba(180,155,120,.13);}
+.hrs-r:last-child{border-bottom:none;}
+.hrs-d{font-size:.83rem;color:var(--mt);}
+.hrs-tm{font-size:.83rem;color:var(--br);font-weight:500;}
+.soc-row{display:flex;gap:.75rem;margin-top:1.3rem;}
+.soc-b{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;background:linear-gradient(145deg,#faf6f0,#f0e8dc);box-shadow:4px 4px 10px rgba(180,155,120,.28),-3px -3px 8px rgba(255,255,255,.83);transition:transform .25s,box-shadow .25s;}
+.soc-b:hover{transform:translateY(-3px);box-shadow:6px 6px 14px rgba(180,155,120,.36),-4px -4px 10px rgba(255,255,255,.90);}
+.ps-side{}
+.ps-t{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:500;color:var(--br);margin-bottom:1.6rem;}
+.psc{border-radius:var(--rxl);padding:2rem;margin-bottom:1.2rem;cursor:pointer;transition:transform .3s,box-shadow .3s;}
+.psc:hover{transform:translateY(-4px);}
+.psc-e{background:linear-gradient(145deg,#1a1408,#2c200a);box-shadow:10px 10px 22px rgba(30,20,10,.38);}
+.psc-t2{background:linear-gradient(145deg,#0c1a08,#18300e);box-shadow:10px 10px 22px rgba(10,25,8,.38);}
+.psc-lbl{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.38rem;}
+.psc-e .psc-lbl{color:var(--gl);}
+.psc-t2 .psc-lbl{color:#7cc870;}
+.psc-nm{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:600;color:#fff;margin-bottom:.28rem;}
+.psc-ds{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.52;}
+.psc-go{display:flex;align-items:center;gap:.4rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-top:.85rem;}
+.psc-e .psc-go{color:var(--gl);}
+.psc-t2 .psc-go{color:#7cc870;}
+footer{margin:4rem 2rem 2rem;border-radius:var(--rxl);background:linear-gradient(145deg,#2c2319,#3a2e22);box-shadow:14px 14px 28px rgba(30,20,10,.38),-4px -4px 14px rgba(255,255,255,.04);padding:4rem 3.5rem 2.5rem;position:relative;z-index:1;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.ft-desc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.78;margin-top:.9rem;font-weight:300;}
+.ft-ct{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gl);margin-bottom:1rem;}
+.fl2{font-size:.83rem;color:rgba(255,255,255,.42);cursor:pointer;display:block;margin-bottom:.52rem;transition:color .25s;text-decoration:none;}
+.fl2:hover{color:var(--gl);}
+.fb{border-top:1px solid rgba(255,255,255,.07);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fb-c{font-size:.74rem;color:rgba(255,255,255,.24);}
+.fb-t{font-family:'Playfair Display',serif;font-style:italic;font-size:.86rem;color:rgba(201,169,110,.42);}
+
+/* ─── FLOATING WHATSAPP FAB ─── */
+.wa-fab{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:.55rem;
+}
+.wa-fab-btn{
+  width:62px;height:62px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#2bdd66,#1db954);
+  box-shadow:0 6px 24px rgba(37,211,102,.50),0 2px 10px rgba(0,0,0,.20),4px 4px 12px rgba(20,160,70,.30),-3px -3px 10px rgba(80,230,120,.18);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  border:none;outline:none;
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s ease;
+  text-decoration:none;
+  position:relative;
+}
+.wa-fab-btn:hover{
+  transform:scale(1.13) translateY(-3px);
+  box-shadow:0 12px 36px rgba(37,211,102,.60),0 4px 14px rgba(0,0,0,.22);
+}
+.wa-fab-btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);
+  animation:wa-ring 2.4s ease-in-out infinite;
+}
+@keyframes wa-ring{
+  0%{transform:scale(1);opacity:.8;}
+  70%{transform:scale(1.55);opacity:0;}
+  100%{transform:scale(1.55);opacity:0;}
+}
+.wa-fab-tooltip{
+  background:linear-gradient(145deg,#2c2319,#3a2e22);
+  color:#fff;
+  font-family:'Outfit',sans-serif;
+  font-size:.76rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  padding:.5rem 1.15rem;
+  border-radius:50px;
+  white-space:nowrap;
+  box-shadow:4px 4px 12px rgba(30,20,10,.32),-2px -2px 8px rgba(255,255,255,.06);
+  opacity:0;
+  transform:translateX(10px);
+  transition:opacity .25s ease,transform .25s ease;
+  pointer-events:none;
+  border:1px solid rgba(201,169,110,.18);
+}
+.wa-fab:hover .wa-fab-tooltip,
+.wa-fab.show-tip .wa-fab-tooltip{
+  opacity:1;
+  transform:translateX(0);
+}
+@media(max-width:640px){
+  .wa-fab{bottom:18px;right:14px;}
+  .wa-fab-btn{width:54px;height:54px;}
+}
+
+@media(max-width:1024px){
+  .pgrid,.ab-split,.el-split,.th-split,.ms-split,.ct-grid,.loc-g,.th-3col{grid-template-columns:1fr;gap:2.5rem;}
+  .vgrid{grid-template-columns:1fr 1fr;}
+  .amen-g{grid-template-columns:1fr 1fr;}
+  .svcs{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr 1fr;gap:2rem;}
+  .sight-grid{grid-template-columns:1fr 1fr;}
+  #nb .nl-row{display:none;}
+  .ham{display:flex;}
+  .el-script{font-size:4rem;}
+  .th-right{display:none;}
+}
+@media(max-width:640px){
+  .vgrid,.amen-g,.sight-grid{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr;}
+  .ngrid{grid-template-columns:1fr 1fr;}
+  .el-facts,.th-pillars{grid-template-columns:1fr 1fr;}
+  .loc-g{grid-template-columns:1fr;}
+  footer{margin:2rem 1rem 1.5rem;padding:2.5rem 2rem 2rem;}
+  #nb{left:10px;right:10px;top:10px;padding:0 1.2rem;}
+  .mob{left:10px;right:10px;top:88px;}
+  .hero-content{padding:7rem 1.5rem 10rem;}
+  .trust-band{padding:3rem 2rem;}
+  .stats{margin:0 1rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+
+<!-- NAVBAR -->
+<nav id="nb" class="glass">
+  <div style="display:flex;align-items:center;gap:.7rem;cursor:pointer;" onclick="goto('home')">
+    <div class="nb-logo" style="background:none;box-shadow:none;overflow:hidden;">
+  <img src="logo.png" style="width:34px;height:34px;object-fit:contain;" alt="Future Land">
+</div>
+    <span class="nb-brand"><em>Future</em> Land</span>
+  </div>
+  <div class="nl-row">
+    <span class="nl" id="nl-home" onclick="goto('home')">Home</span>
+    <span class="nl" id="nl-about" onclick="goto('about')">About</span>
+    <span class="nl" id="nl-elixir" onclick="goto('elixir')">Elixir</span>
+    <span class="nl" id="nl-thaayi" onclick="goto('thaayi')">Thaayi Beru</span>
+    <span class="nl nl-cta" id="nl-contact" onclick="goto('contact')">Contact</span>
+  </div>
+  <div class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob clay" id="mob">
+  <span class="nl" onclick="goto('home');toggleMob()">Home</span>
+  <span class="nl" onclick="goto('about');toggleMob()">About</span>
+  <span class="nl" onclick="goto('elixir');toggleMob()">Elixir</span>
+  <span class="nl" onclick="goto('thaayi');toggleMob()">Thaayi Beru</span>
+  <span class="nl" onclick="goto('contact');toggleMob()">Contact</span>
+</div>
+
+<!-- ═══ FLOATING WHATSAPP FAB ═══ -->
+<div class="wa-fab" id="waFab">
+  <span class="wa-fab-tooltip">Chat with us on WhatsApp</span>
+  <a class="wa-fab-btn"
+     href="https://wa.me/917795707706?text=Hi%2C%20I%27m%20interested%20in%20a%20plot%20at%20Future%20Land.%20Please%20share%20more%20details."
+     target="_blank"
+     rel="noopener"
+     aria-label="Chat with Future Land on WhatsApp"
+     title="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.851L.057 23.57a.75.75 0 00.906.906l5.765-1.461A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.698-.504-5.244-1.385l-.376-.214-3.892.987.998-3.818-.234-.386A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero-with-bg">
+    <div class="hero-bg-img" style="background-image:url('imvi.png');"></div>
+    <div class="hero-content">
+      <span class="eyebrow ani">Kolar's Premier Real Estate Developer</span>
+      <h1 class="h1 ani d1">Your Future<br>Begins <em>Here</em></h1>
+      <p class="hero-sub ani d2">Premium residential communities across Kolar, Karnataka — designed for prosperity, built for a lifetime.</p>
+      <div class="hero-btns ani d3">
+        <button class="cbtn cbtn-dk" onclick="goto('elixir')">Explore Elixir</button>
+        <button class="cbtn cbtn-gr" onclick="goto('thaayi')">Thaayi Beru</button>
+        <button class="cbtn" onclick="goto('about')">Our Story</button>
+        <!-- ★ NEW: WhatsApp button wired to contact page form -->
+        <button class="cbtn" onclick="goto('contact')" style="background:linear-gradient(145deg,#d4f0d0,#bde8b6);box-shadow:8px 8px 18px rgba(37,180,80,.22),-8px -8px 18px rgba(255,255,255,.90),inset 2px 2px 4px rgba(255,255,255,.65),inset -1px -1px 3px rgba(37,180,80,.18);color:#1a5e28;display:inline-flex;align-items:center;gap:.5rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.851L.057 23.57a.75.75 0 00.906.906l5.765-1.461A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.698-.504-5.244-1.385l-.376-.214-3.892.987.998-3.818-.234-.386A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp Us
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:4rem;padding-top:4rem;">
+    <div class="stats ani d2">
+      <div class="stat"><div class="stat-n">1,500+</div><div class="stat-l">Satisfied Customers</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Layouts Delivered</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Legal Clearance</div></div>
+      <div class="stat"><div class="stat-n">80%</div><div class="stat-l">Bank Loan Eligible</div></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="eyebrow gld ani">Our Projects</span>
+      <h2 class="h2 ani d1">Two Worlds of <em>Exceptional</em> Living</h2>
+      <div class="cdiv ani d1"></div>
+      <div class="pgrid ani d2">
+        <div class="pc pc-e" onclick="goto('elixir')">
+          <div class="pc-bg" style="background-image:url('imj1.png');background-size:cover;background-position:center;"></div><div class="pc-noise"></div><div class="pc-glow-e"></div>
+          <div class="pc-badge">DTCP Approved</div>
+          <div class="pc-content">
+            <div class="pc-tag">Project One · Premium Villa Plots</div>
+            <div class="pc-name">Elixir</div>
+            <div class="pc-sub">Gated Community · Narasapura Industrial Area, Kolar</div>
+            <div class="pc-arr">Discover <span>→</span></div>
+          </div>
+        </div>
+        <div class="pc pc-t" onclick="goto('thaayi')">
+          <div class="pc-bg" style="background-image:url('image.png');background-size:cover;background-position:center;"></div><div class="pc-noise"></div><div class="pc-glow-t"></div>
+          <div class="pc-badge">Eco-Luxury</div>
+          <div class="pc-content">
+            <div class="pc-tag">Project Two · Wellness Community</div>
+            <div class="pc-name">Thaayi Beru</div>
+            <div class="pc-sub">Mother Root · Organic Living, Kolar District</div>
+            <div class="pc-arr">Discover <span>→</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;" class="ani">
+        <div>
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="h2">Comprehensive Real <em>Estate Services</em></h2>
+        </div>
+        <div>
+          <div class="cdiv"></div>
+          <p class="body-t">From premium plotting to full-scale residential construction — quality, transparency, and timely delivery at the core of every project.</p>
+        </div>
+      </div>
+      <div class="svcs ani d2">
+        <div class="clay svc">
+          <div class="svc-ic">I</div>
+          <div class="svc-t">Construction</div>
+          <p class="svc-d">Row houses, villas, PG accommodations, single and duplex homes — built with precision and craftsmanship tailored to your vision.</p>
+        </div>
+        <div class="clay svc">
+          <div class="svc-ic">II</div>
+          <div class="svc-t">Development</div>
+          <p class="svc-d">Comprehensive land development and premium residential site development — plotted layouts designed for optimal living and investment value.</p>
+        </div>
+        <div class="clay svc">
+          <div class="svc-ic">III</div>
+          <div class="svc-t">Transactions</div>
+          <p class="svc-d">Expert guidance for buying, selling, and managing buildings, premium sites, and rental apartments across Kolar and Karnataka.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <div class="trust-band ani">
+        <p class="tb-q">"<strong>Building Prosperity,</strong><br>One Investment At A Time"</p>
+        <p class="tb-s">Future Land · Kolar, Karnataka</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fg">
+      <div>
+        <div style="display:flex;align-items:center;gap:.6rem;"><div class="nb-logo"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5Z" stroke="white" stroke-width="1.2" fill="none"/><circle cx="7" cy="7" r="2" fill="white"/></svg></div><span style="font-family:'Playfair Display',serif;font-size:1.12rem;color:white;"><em style="color:var(--gl);font-style:normal;">Future</em> Land</span></div>
+        <p class="ft-desc">A reputed real estate company committed to excellence and customer satisfaction, developing premium layouts across Kolar and Karnataka since inception.</p>
+      </div>
+      <div><div class="ft-ct">Navigate</div><a class="fl2" onclick="goto('home')">Home</a><a class="fl2" onclick="goto('about')">About Us</a><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a><a class="fl2" onclick="goto('contact')">Contact</a></div>
+      <div><div class="ft-ct">Projects</div><a class="fl2" onclick="goto('elixir')">Elixir — Villa Plots</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru — Wellness</a></div>
+      <div><div class="ft-ct">Contact</div><p class="fl2" style="cursor:default;">+91 77957 07706</p><p class="fl2" style="cursor:default;">+91 63642 29319</p><p class="fl2" style="cursor:default;">futureland0456@gmail.com</p><p class="fl2" style="cursor:default;">OTF Layout, Kolar – 563101</p></div>
+    </div>
+    <div class="fb"><p class="fb-c">© 2025 Future Land. All rights reserved.</p><p class="fb-t">"Building Prosperity, One Investment At A Time"</p></div>
+  </footer>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <section style="min-height:65vh;padding:10rem 0 5rem;display:flex;align-items:center;position:relative;z-index:1;">
+    <div class="wrap" style="width:100%;">
+      <div class="ab-split">
+        <div class="ani">
+          <span class="eyebrow gld">About Future Land</span>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1.12;color:var(--br);">Built on Trust,<br>Driven by <em style="font-style:italic;color:var(--gold);">Excellence</em></h1>
+          <div class="cdiv"></div>
+          <p class="body-t">Future Land is a reputed real estate company known for its commitment to excellence and customer satisfaction. We have successfully developed three layouts in and around Karnataka, earning the trust of over 1,500 satisfied customers.</p>
+          <p class="body-t" style="margin-top:1rem;">Our focus on quality, innovation, and timely delivery has positioned us as a reliable name in the real estate sector. Every project we undertake is a testament to our commitment to quality and our passion for creating spaces where families can grow and thrive.</p>
+        </div>
+        <div class="clay ab-fc ani d2">
+          <div class="ab-fc-h">Why Future Land</div>
+          <div class="ab-row"><div class="ab-ic">01</div><div><div class="ab-rs">Proven Track Record</div><div class="ab-rd">Three successful layouts across Kolar and Karnataka.</div></div></div>
+          <div class="ab-row"><div class="ab-ic">02</div><div><div class="ab-rs">100% Legal Clearance</div><div class="ab-rd">DTCP approved projects with complete documentation and transparency.</div></div></div>
+          <div class="ab-row"><div class="ab-ic">03</div><div><div class="ab-rs">Timely Delivery</div><div class="ab-rd">On-time completion with no compromise on quality standards.</div></div></div>
+          <div class="ab-row"><div class="ab-ic">04</div><div><div class="ab-rs">Easy Financing</div><div class="ab-rd">Up to 80% bank loan available for eligible buyers on select projects.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow ani">Our Values</span>
+      <h2 class="h2 ani d1">The Principles Behind <em>Every Project</em></h2>
+      <div class="cdiv ani d1"></div>
+      <div class="vgrid ani d2">
+        <div class="clay vcrd"><div class="v-ic">Q</div><div class="v-t">Quality</div><p class="v-d">Every plot, every amenity, every road crafted with uncompromising attention to detail and long-term durability.</p></div>
+        <div class="clay vcrd"><div class="v-ic">I</div><div class="v-t">Innovation</div><p class="v-d">Modern design principles, sustainable infrastructure, and thoughtful layouts that stand the test of time.</p></div>
+        <div class="clay vcrd"><div class="v-ic">T</div><div class="v-t">Trust</div><p class="v-d">Legal transparency, clear Vaasthu principles, and honest communication at every stage of your journey.</p></div>
+        <div class="clay vcrd"><div class="v-ic">S</div><div class="v-t">Sustainability</div><p class="v-d">Two trees planted per site, eco-friendly infrastructure, communities designed in harmony with nature.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <div class="ms-split">
+        <div class="ani">
+          <span class="eyebrow">Our Mission</span>
+          <h2 class="h2">Building <em>Prosperity</em></h2>
+          <div class="cdiv"></div>
+          <p class="body-t">Future Land was established with a singular vision — to make quality real estate accessible to every aspiring homeowner and investor in Kolar and beyond. We believe land is not just property; it is the foundation of a family's future, security, and legacy.</p>
+          <p class="body-t" style="margin-top:1rem;">Through thoughtful development, strategic locations near major industrial hubs, and community-centred design, we create spaces where life can truly flourish.</p>
+          <div class="mpull">
+            <p>"<strong>Building Prosperity,</strong> One Investment At A Time"</p>
+          </div>
+        </div>
+        <div class="ngrid ani d2">
+          <div class="nc"><div class="nc-n">1,500+</div><div class="nc-l">Happy Customers</div></div>
+          <div class="nc"><div class="nc-n">3</div><div class="nc-l">Layouts Delivered</div></div>
+          <div class="nc"><div class="nc-n">100%</div><div class="nc-l">Legal Clearance</div></div>
+          <div class="nc"><div class="nc-n">2</div><div class="nc-l">Active Projects</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow ani">Leadership</span>
+      <h2 class="h2 ani d1">Our <em>Managing Directors</em></h2>
+      <div class="cdiv ani d1"></div>
+      <p class="body-t ani d1" style="max-width:680px;margin-bottom:3rem;">Future Land is built on a foundation of partnership, trust, and shared vision. Our Managing Directors bring decades of combined experience in real estate development, project management, and customer service excellence.</p>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem;" class="ani d2">
+        <div class="clay" style="padding:2.5rem;border-radius:var(--rxl);text-align:center;">
+          <div style="width:160px;height:160px;border-radius:50%;margin:0 auto 1.8rem;overflow:hidden;background:#f0e6d3;box-shadow:8px 8px 18px rgba(180,155,120,.36),-8px -8px 18px rgba(255,255,255,.88);">
+            <img src="venu.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Venugopal">
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--br);margin-bottom:.4rem;">Venugopal</h3>
+          <p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Managing Director</p>
+          <p class="body-t" style="font-size:.88rem;line-height:1.7;">Visionary leader with extensive experience in real estate development and strategic planning. Committed to delivering exceptional value and fostering long-term relationships with clients and partners.</p>
+        </div>
+        <div class="clay" style="padding:2.5rem;border-radius:var(--rxl);text-align:center;">
+          <div style="width:160px;height:160px;border-radius:50%;margin:0 auto 1.8rem;overflow:hidden;background:#f0e6d3;box-shadow:8px 8px 18px rgba(180,155,120,.36),-8px -8px 18px rgba(255,255,255,.88);">
+            <img src="prasad.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Prasad Mouni">
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--br);margin-bottom:.4rem;">Prasad Mouni</h3>
+          <p style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Managing Director</p>
+          <p class="body-t" style="font-size:.88rem;line-height:1.7;">Dynamic leader with a passion for innovation and excellence in property development. Brings expertise in operational management and customer-centric project execution to every Future Land initiative.</p>
+        </div>
+      </div>
+
+      <div class="trust-band ani d3" style="margin-top:3rem;padding:3rem 3.5rem;">
+        <p class="tb-q" style="font-size:clamp(1.4rem,3vw,2rem);">"Together, we built Future Land on the principles of <strong>trust, transparency,</strong> and a shared commitment to creating <strong>prosperity</strong> for our customers."</p>
+        <p class="tb-s" style="margin-top:1rem;">Venugopal &amp; Prasad Mouni · Managing Directors, Future Land</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fg">
+      <div><div style="display:flex;align-items:center;gap:.6rem;"><div class="nb-logo"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5Z" stroke="white" stroke-width="1.2" fill="none"/><circle cx="7" cy="7" r="2" fill="white"/></svg></div><span style="font-family:'Playfair Display',serif;font-size:1.12rem;color:white;"><em style="color:var(--gl);font-style:normal;">Future</em> Land</span></div><p class="ft-desc">Building Prosperity, One Investment At A Time — Kolar, Karnataka.</p></div>
+      <div><div class="ft-ct">Navigate</div><a class="fl2" onclick="goto('home')">Home</a><a class="fl2" onclick="goto('about')">About</a><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a><a class="fl2" onclick="goto('contact')">Contact</a></div>
+      <div><div class="ft-ct">Projects</div><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a></div>
+      <div><div class="ft-ct">Contact</div><p class="fl2" style="cursor:default;">+91 77957 07706</p><p class="fl2" style="cursor:default;">futureland0456@gmail.com</p><p class="fl2" style="cursor:default;">Kolar – 563101</p></div>
+    </div>
+    <div class="fb"><p class="fb-c">© 2025 Future Land.</p><p class="fb-t">"Building Prosperity, One Investment At A Time"</p></div>
+  </footer>
+</div>
+
+<!-- ELIXIR -->
+<div id="page-elixir" class="page">
+  <section class="hero-with-bg">
+    <div class="hero-bg-img" style="background-image:url('imgele.png');"></div>
+    <div class="hero-content" style="max-width:1240px;margin:0 auto;text-align:left;">
+      <div class="el-split" style="grid-template-columns:1fr;">
+        <div class="ani">
+          <div class="el-lbl"><div class="el-lbl-dot"></div>DTCP Approved · Gated Community · Future Land × GEOWN</div>
+          <h1 class="el-h" style="color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.5);">A Premium<br><em>Villa</em> Lifestyle</h1>
+          <p class="el-sub" style="color:var(--gl);text-shadow:1px 1px 4px rgba(0,0,0,0.4);">Where Prosperity Meets Elegance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:5rem 0;position:relative;z-index:1;">
+    <div class="wrap" style="width:100%;">
+      <div class="el-split">
+        <div class="ani">
+          <p class="body-t" style="max-width:480px;margin-bottom:2rem;">Elixir is a meticulously designed DTCP Approved Layout developed by Future Land in collaboration with GEOWN. A secure gated community offering high-quality Villa Plots near the Narasapura Industrial Area — conceived on Clear Vaasthu principles for harmonious living and long-term investment value.</p>
+          <div class="el-facts">
+            <div class="ef"><div class="ef-n">80%</div><div class="ef-l">Bank Loan Available</div></div>
+            <div class="ef"><div class="ef-n">NH 4</div><div class="ef-l">Highway Access</div></div>
+            <div class="ef"><div class="ef-n">Vaasthu</div><div class="ef-l">Clear Layout Design</div></div>
+            <div class="ef"><div class="ef-n">24 / 7</div><div class="ef-l">Security · Water · Power</div></div>
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+            <button class="cbtn cbtn-dk" onclick="goto('contact')">Enquire Now</button>
+            <a href="https://maps.app.goo.gl/eurQDJzUNaurgoPN6" target="_blank" class="mapbtn">View Location on Maps</a>
+          </div>
+        </div>
+        <div class="ani d2">
+          <div class="clay el-rc">
+            <div class="loan"><div class="loan-p">80%</div><div class="loan-s">Bank Loan Eligible</div></div>
+            <ul class="fl">
+              <li><span class="fl-dot"></span>Premium DTCP Approved Layout</li>
+              <li><span class="fl-dot"></span>Fully Enclosed Gated Community</li>
+              <li><span class="fl-dot"></span>Clear Vaasthu Principles Throughout</li>
+              <li><span class="fl-dot"></span>Developed with GEOWN</li>
+              <li><span class="fl-dot"></span>Near Narasapura Industrial Area</li>
+              <li><span class="fl-dot"></span>NH 4 &amp; Bengaluru–Chennai Expressway</li>
+              <li><span class="fl-dot"></span>Swimming Pool &amp; Club House</li>
+              <li><span class="fl-dot"></span>Golf Ground &amp; Mini Cricket Ground</li>
+              <li><span class="fl-dot"></span>24/7 Water, Electricity &amp; Security</li>
+              <li><span class="fl-dot"></span>Two Trees Planted Per Site</li>
+              <li><span class="fl-dot"></span>Indoor Games &amp; Jogging Track</li>
+              <li><span class="fl-dot"></span>On-Site Temple</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="eyebrow gld ani">Amenities</span>
+      <h2 class="h2 ani d1">Designed for <em>Inspired</em> Living</h2>
+      <div class="cdiv ani d1"></div>
+      <div class="amen-g ani d2">
+        <div class="clay ac"><span class="ac-icon">Club House</span><div class="ac-t">Club House</div><p class="ac-d">A dedicated community centre for residents — events, socialising, and shared activities.</p></div>
+        <div class="clay ac"><span class="ac-icon">Swimming Pool</span><div class="ac-t">Swimming Pool</div><p class="ac-d">Professionally maintained pool area designed for leisure and fitness.</p></div>
+        <div class="clay ac"><span class="ac-icon">Golf Ground</span><div class="ac-t">Golf Ground</div><p class="ac-d">Dedicated area for golf enthusiasts within the community.</p></div>
+        <div class="clay ac"><span class="ac-icon">Cricket Ground</span><div class="ac-t">Mini Cricket Ground</div><p class="ac-d">Purpose-built ground for cricket practice and friendly matches.</p></div>
+        <div class="clay ac"><span class="ac-icon">Basketball</span><div class="ac-t">Basketball Court</div><p class="ac-d">Full-sized play area for basketball — practice and competitive play.</p></div>
+        <div class="clay ac"><span class="ac-icon">Indoor Games</span><div class="ac-t">Indoor Games</div><p class="ac-d">Dedicated facility for various indoor recreational activities.</p></div>
+        <div class="clay ac"><span class="ac-icon">Jogging Track</span><div class="ac-t">Jogging Track</div><p class="ac-d">Scenic pathway designed for morning runs and evening walks.</p></div>
+        <div class="clay ac"><span class="ac-icon">Landscape Park</span><div class="ac-t">Landscape Park</div><p class="ac-d">Professionally designed green spaces — two trees planted for every site.</p></div>
+        <div class="clay ac"><span class="ac-icon">Temple</span><div class="ac-t">Temple</div><p class="ac-d">On-site spiritual space for residents' peace and daily devotion.</p></div>
+        <div class="clay ac"><span class="ac-icon">24/7 Security</span><div class="ac-t">Gated Security</div><p class="ac-d">Fully enclosed community with round-the-clock monitoring and controlled access.</p></div>
+        <div class="clay ac"><span class="ac-icon">Water Supply</span><div class="ac-t">24/7 Water</div><p class="ac-d">Continuous water supply ensuring uninterrupted access for all residents.</p></div>
+        <div class="clay ac"><span class="ac-icon">Clear Vaasthu</span><div class="ac-t">Clear Vaasthu</div><p class="ac-d">Layout and every plot designed strictly according to Vaasthu principles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow gld ani">Location &amp; Connectivity</span>
+      <h2 class="h2 ani d1">Near <em>Narasapura</em> Industrial Area</h2>
+      <div class="cdiv ani d1"></div>
+      <p class="body-t ani d1" style="max-width:620px;margin-bottom:2.5rem;">Strategically located with direct access via NH 4 and the Bengaluru–Chennai Expressway. Surrounded by leading industries, educational institutions, and healthcare facilities — ideal for both residential living and long-term investment.</p>
+      <div class="loc-dk ani d2">
+        <div class="loc-g">
+          <div>
+            <div class="lc-t">Schools &amp; Colleges</div>
+            <div class="li-row"><span class="li-n">Valley Public School</span><span class="li-t">10 mins</span></div>
+            <div class="li-row"><span class="li-n">Surya Vidya Samsthe</span><span class="li-t">9 mins</span></div>
+            <div class="li-row"><span class="li-n">KVN Private ITI</span><span class="li-t">10 mins</span></div>
+            <div class="li-row"><span class="li-n">Shasanya Narayani Inter School</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">Prem Seva Vidyala</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">MVJ Medical College</span><span class="li-t">19 mins</span></div>
+            <div class="lc-t" style="margin-top:1.8rem;">Hospitals</div>
+            <div class="li-row"><span class="li-n">St. Mary's Hospital</span><span class="li-t">16 mins</span></div>
+            <div class="li-row"><span class="li-n">Ayush Hospital</span><span class="li-t">18 mins</span></div>
+            <div class="li-row"><span class="li-n">MVJ Hospital</span><span class="li-t">20 mins</span></div>
+            <div class="li-row"><span class="li-n">RL Jallapa Medical College</span><span class="li-t">22 mins</span></div>
+            <div class="li-row"><span class="li-n">Global Eye Foundation</span><span class="li-t">25 mins</span></div>
+          </div>
+          <div>
+            <div class="lc-t">Hotels &amp; Leisure</div>
+            <div class="li-row"><span class="li-n">Hotel Gets Grand</span><span class="li-t">4 mins</span></div>
+            <div class="li-row"><span class="li-n">Kamat Upachar</span><span class="li-t">6 mins</span></div>
+            <div class="li-row"><span class="li-n">Golden Amoon Resort &amp; Spa</span><span class="li-t">7 mins</span></div>
+            <div class="li-row"><span class="li-n">Café Coffee Day</span><span class="li-t">8 mins</span></div>
+            <div class="li-row"><span class="li-n">Radisson</span><span class="li-t">8 mins</span></div>
+            <div class="li-row"><span class="li-n">Stay Simple Zion Hills Golf Resort</span><span class="li-t">30 mins</span></div>
+            <div class="lc-t" style="margin-top:1.8rem;">Banks &amp; Fuel</div>
+            <div class="li-row"><span class="li-n">State Bank of India</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">HDFC Bank</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">Bank of Baroda</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">Indian Bank</span><span class="li-t">5 mins</span></div>
+            <div class="li-row"><span class="li-n">Indian Oil · HP · Bharat Petroleum</span><span class="li-t">5 mins</span></div>
+          </div>
+          <div>
+            <div class="lc-t">Factories &amp; Employers</div>
+            <div class="li-row"><span class="li-n">Volvo</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Honda</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Scania</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Lumax</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Badve · Exide · Apex Auto</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Bando · ASK · Asin</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Tata Power · Indo · Takenaka</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Medreich Ltd. · Shimz GSK</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Track Components Ltd.</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="li-row"><span class="li-n">Shivam Auto Tech Limited</span><span class="li-t" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lc-t" style="margin-top:1.8rem;">Connectivity</div>
+            <div class="li-row"><span class="li-n">NH 4 (National Highway)</span><span class="li-t">Direct</span></div>
+            <div class="li-row"><span class="li-n">Bengaluru–Chennai Expressway</span><span class="li-t">Direct</span></div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/eurQDJzUNaurgoPN6" target="_blank" class="mapbtn">Open Project Location in Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow gld ani">Best Sightseeing Within 100 km</span>
+      <h2 class="h2 ani d1">The <em>Neighbourhood</em> Advantage</h2>
+      <div class="cdiv ani d1"></div>
+      <div class="sight-grid ani d2">
+        <div class="clay sight-col">
+          <div class="sc-t">Within 30 km — Local Kolar / Narasapura</div>
+          <ul class="sc-list">
+            <li>Antaragange Caves</li><li>Scenic Kendatti Quarry (Chota Ladakh)</li><li>Kotilingeshwara Temple</li><li>Kolaramma &amp; Someshwara Temples</li><li>Narasapur Lake</li><li>Challahalli Falls</li><li>Markandeya Hills</li><li>Avani Betta</li><li>Budikote (Fort of Ash)</li><li>Chikka Tirupati</li>
+          </ul>
+        </div>
+        <div class="clay sight-col">
+          <div class="sc-t">30 km – 80 km — Day Trips &amp; Treks</div>
+          <ul class="sc-list">
+            <li>Kolar Gold Fields (KGF)</li><li>Kaiwara &amp; Kailasagiri</li><li>Kurudumale Ganesha Temple</li><li>Nandi Hills</li><li>Skandagiri</li><li>Madanapalle</li><li>Srinivasa Sagar Dam</li><li>Isha Foundation (Chikkaballapura)</li><li>Gudibande Fort</li><li>Vidurashwatha</li>
+          </ul>
+        </div>
+        <div class="clay sight-col">
+          <div class="sc-t">80 km – 150 km — Major Destinations</div>
+          <ul class="sc-list">
+            <li>Horsley Hills (AP)</li><li>Lepakshi (AP)</li><li>Yelagiri Hills (TN)</li><li>Hogenakkal Falls (TN/KA)</li><li>Bannerghatta National Park</li><li>Mysore</li><li>Shivanasamudra Falls</li><li>Mekedatu &amp; Sangama</li><li>Manchanabele Dam</li><li>Savandurga Hill</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fg">
+      <div><div style="display:flex;align-items:center;gap:.6rem;"><div class="nb-logo"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5Z" stroke="white" stroke-width="1.2" fill="none"/><circle cx="7" cy="7" r="2" fill="white"/></svg></div><span style="font-family:'Playfair Display',serif;font-size:1.12rem;color:white;"><em style="color:var(--gl);font-style:normal;">Future</em> Land</span></div><p class="ft-desc">Building Prosperity, One Investment At A Time.</p></div>
+      <div><div class="ft-ct">Navigate</div><a class="fl2" onclick="goto('home')">Home</a><a class="fl2" onclick="goto('about')">About</a><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a><a class="fl2" onclick="goto('contact')">Contact</a></div>
+      <div><div class="ft-ct">Projects</div><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a></div>
+      <div><div class="ft-ct">Contact</div><p class="fl2" style="cursor:default;">+91 77957 07706</p><p class="fl2" style="cursor:default;">futureland0456@gmail.com</p><p class="fl2" style="cursor:default;">Kolar – 563101</p></div>
+    </div>
+    <div class="fb"><p class="fb-c">© 2025 Future Land.</p><p class="fb-t">"Building Prosperity, One Investment At A Time"</p></div>
+  </footer>
+</div>
+
+<!-- THAAYI BERU -->
+<div id="page-thaayi" class="page">
+  <section class="hero-with-bg">
+    <div class="hero-bg-img" style="background-image:url('thay.png');"></div>
+    <div class="hero-content" style="max-width:1240px;margin:0 auto;text-align:left;">
+      <div class="th-split" style="grid-template-columns:1fr;">
+        <div class="ani">
+          <div class="th-lbl"><div class="th-lbl-dot"></div>Eco-Luxury · Wellness Community · Future Land 2.0</div>
+          <h1 class="th-h" style="color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.5);">Thaayi<br><strong style="color:#7cc870;text-shadow:2px 2px 8px rgba(0,0,0,0.5);">Beru</strong></h1>
+          <p class="th-mn" style="color:#7cc870;text-shadow:1px 1px 4px rgba(0,0,0,0.4);">ತಾಯಿ ಬೇರು — "Mother Root"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:5rem 0;position:relative;z-index:1;">
+    <div class="wrap" style="width:100%;">
+      <div class="th-split">
+        <div class="ani">
+          <div class="th-tcard"><p>"Return to Your Roots. Invest in Your Soul."</p></div>
+          <p class="body-t" style="max-width:500px;margin-bottom:1.8rem;">In Kannada, Thaayi Beru means the "Mother Root" — the deep source that gives a tree its strength and life. Just as a tree needs its roots, we need nature to truly thrive. Thaayi Beru is more than just land; it is a chance to return to a simpler, healthier way of living.</p>
+          <p class="body-t" style="max-width:500px;margin-bottom:2rem;">A place where owning your own earth brings stability, eating organic food from your own community brings health, and a peaceful mind becomes the true measure of success.</p>
+          <div class="th-pillars">
+            <div class="tp"><div class="tp-l">Community</div><div class="tp-v">Organic Living</div></div>
+            <div class="tp"><div class="tp-l">Wellness</div><div class="tp-v">Yoga &amp; Ayurveda</div></div>
+            <div class="tp"><div class="tp-l">Infrastructure</div><div class="tp-v">Eco-Friendly</div></div>
+            <div class="tp"><div class="tp-l">Security</div><div class="tp-v">24/7 Gated</div></div>
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <button class="cbtn cbtn-gr" onclick="goto('contact')">Enquire Now</button>
+            <a href="https://goo.gl/maps/g6a9LLWxDaFmU15b8" target="_blank" class="mapbtn gr">View Location on Maps</a>
+          </div>
+        </div>
+        <div class="th-right ani d2">
+          <div class="clay th-fc"><div class="th-fc-dot"></div><div><div class="th-fc-t">Ayurvedic Healing Center</div><p class="th-fc-d">Traditional treatments for rejuvenation and balance — ancient wisdom for modern well-being.</p></div></div>
+          <div class="clay th-fc"><div class="th-fc-dot"></div><div><div class="th-fc-t">Yoga &amp; Meditation Center</div><p class="th-fc-d">Sacred spaces designed for grounding, mindfulness, and finding your inner calm.</p></div></div>
+          <div class="clay th-fc"><div class="th-fc-dot"></div><div><div class="th-fc-t">Natural Therapy Zones</div><p class="th-fc-d">Walkways and gardens designed for physical healing, reflexology, and reconnecting with the earth.</p></div></div>
+          <div class="clay th-fc"><div class="th-fc-dot"></div><div><div class="th-fc-t">Community Organic Farm</div><p class="th-fc-d">Grow your own chemical-free produce. Traditional Goshala. Farm-to-table kitchen with fresh, local meals daily.</p></div></div>
+          <div class="clay th-fc"><div class="th-fc-dot"></div><div><div class="th-fc-t">Eco-Friendly Infrastructure</div><p class="th-fc-d">Durable, nature-conscious internal roads. Advanced water management. Underground utilities. 24/7 CCTV security.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="eyebrow grn ani">On-Site Amenities</span>
+      <h2 class="h2 gem ani d1">Holistic Living, <em>Naturally</em></h2>
+      <div class="cdiv gr ani d1"></div>
+      <div class="th-3col ani d2">
+        <div class="clay th-ag"><div class="th-ag-t">Wellness &amp; Spiritual</div><ul class="th-ag-l"><li>Ayurvedic Healing Center</li><li>Yoga &amp; Meditation Center</li><li>Natural Therapy Zones</li><li>Reflexology Walkways</li><li>Sacred Wellness Spaces</li></ul></div>
+        <div class="clay th-ag"><div class="th-ag-t">Sustainable Living</div><ul class="th-ag-l"><li>Community Organic Farm</li><li>Traditional Goshala</li><li>Farm-to-Table Kitchen</li><li>Eco-Friendly Lifestyle Design</li></ul></div>
+        <div class="clay th-ag"><div class="th-ag-t">Infrastructure &amp; Security</div><ul class="th-ag-l"><li>24/7 Gated Security</li><li>CCTV Surveillance</li><li>Advanced Water Management</li><li>Underground Utilities</li><li>Eco-Friendly Internal Roads</li></ul></div>
+        <div class="clay th-ag"><div class="th-ag-t">Recreation</div><ul class="th-ag-l"><li>Club House</li><li>Play Area</li><li>Natural Green Spaces</li></ul></div>
+        <div class="clay th-ag"><div class="th-ag-t">Education Nearby</div><ul class="th-ag-l"><li>Valley Public School — 10 mins</li><li>Prem Seva Vidyala — 5 mins</li><li>Shasanya Narayani School — 5 mins</li><li>Surya Vidya Samsthe — 9 mins</li><li>KVN Private ITI — 10 mins</li><li>MVJ Medical College — 19 mins</li></ul></div>
+        <div class="clay th-ag"><div class="th-ag-t">Healthcare Nearby</div><ul class="th-ag-l"><li>St. Mary's Hospital — 16 mins</li><li>Ayush Hospital — 18 mins</li><li>MVJ Hospital — 20 mins</li><li>RL Jallappa Hospital — 22 mins</li><li>Global Eye Foundation — 25 mins</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow grn ani">Location &amp; Connectivity</span>
+      <h2 class="h2 gem ani d1">Behind <em>Tata Electronics</em>, Narasapura</h2>
+      <div class="cdiv gr ani d1"></div>
+      <p class="body-t ani d1" style="max-width:620px;margin-bottom:2.5rem;">Located behind Tata Electronics Company, Narasapura Industrial Area, Kolar District — offering immediate industrial access and excellent connectivity to banks, schools, hospitals, and leisure destinations.</p>
+      <div class="loc-gr ani d2">
+        <div class="loc-g">
+          <div>
+            <div class="lg-t">Banks</div>
+            <div class="lg-row"><span class="lg-n">State Bank of India</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-row"><span class="lg-n">HDFC Bank</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Bank of Baroda</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Indian Bank</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-t" style="margin-top:1.8rem;">Fuel Stations</div>
+            <div class="lg-row"><span class="lg-n">Indian Oil</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-row"><span class="lg-n">HP Pump</span><span class="lg-t2">5 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Bharat Petroleum</span><span class="lg-t2">5 mins</span></div>
+          </div>
+          <div>
+            <div class="lg-t">Hotels &amp; Leisure</div>
+            <div class="lg-row"><span class="lg-n">Hotel Gets Grand</span><span class="lg-t2">4 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Kamat Upachar</span><span class="lg-t2">6 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Golden Amoon Resort &amp; Spa</span><span class="lg-t2">7 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Café Coffee Day</span><span class="lg-t2">8 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Radisson</span><span class="lg-t2">8 mins</span></div>
+            <div class="lg-row"><span class="lg-n">Stay Simple Zion Hills Golf Resort</span><span class="lg-t2">30 mins</span></div>
+          </div>
+          <div>
+            <div class="lg-t">Industrial Hub — Immediate Access</div>
+            <div class="lg-row"><span class="lg-n">Tata Electronics</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Adjacent</span></div>
+            <div class="lg-row"><span class="lg-n">Lumax · Badve · Exedy</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lg-row"><span class="lg-n">Apex Auto · Bando · ASK</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lg-row"><span class="lg-n">Asin · Indo · Takenaka</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lg-row"><span class="lg-n">Shimz GSK</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lg-row"><span class="lg-n">Track Components Ltd.</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+            <div class="lg-row"><span class="lg-n">Shivam Auto Tech Limited</span><span class="lg-t2" style="color:rgba(255,255,255,.3);font-size:.72rem;">Near</span></div>
+          </div>
+        </div>
+        <a href="https://goo.gl/maps/g6a9LLWxDaFmU15b8" target="_blank" class="mapbtn gr" style="margin-top:.5rem;">Open Project Location in Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fg">
+      <div><div style="display:flex;align-items:center;gap:.6rem;"><div class="nb-logo"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5Z" stroke="white" stroke-width="1.2" fill="none"/><circle cx="7" cy="7" r="2" fill="white"/></svg></div><span style="font-family:'Playfair Display',serif;font-size:1.12rem;color:white;"><em style="color:var(--gl);font-style:normal;">Future</em> Land</span></div><p class="ft-desc">Building Prosperity, One Investment At A Time.</p></div>
+      <div><div class="ft-ct">Navigate</div><a class="fl2" onclick="goto('home')">Home</a><a class="fl2" onclick="goto('about')">About</a><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a><a class="fl2" onclick="goto('contact')">Contact</a></div>
+      <div><div class="ft-ct">Projects</div><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a></div>
+      <div><div class="ft-ct">Contact</div><p class="fl2" style="cursor:default;">+91 77957 07706</p><p class="fl2" style="cursor:default;">futureland0456@gmail.com</p><p class="fl2" style="cursor:default;">Kolar – 563101</p></div>
+    </div>
+    <div class="fb"><p class="fb-c">© 2025 Future Land.</p><p class="fb-t">"Return to Your Roots. Invest in Your Soul."</p></div>
+  </footer>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section style="padding:10rem 0 3rem;text-align:center;position:relative;z-index:1;">
+    <div class="wrap">
+      <span class="eyebrow gld ani">Get In Touch</span>
+      <h1 class="h1 ani d1" style="font-size:clamp(2.8rem,6vw,4.5rem);">Let's Build<br>Your <em>Future</em></h1>
+      <div class="cdiv c ani d1"></div>
+      <p class="body-t ani d2" style="max-width:480px;margin:0 auto;">Our team is available 7 days a week to guide you through every step of your investment journey — from site visit to registration.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:2rem;">
+    <div class="wrap">
+      <div class="ct-grid ani d2">
+        <div>
+          <div class="clay ct-card">
+            <p style="font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--br);margin-bottom:.4rem;">Reach Out</p>
+            <p class="body-t" style="margin-bottom:2rem;">We're here to help you find the perfect plot or investment at either of our premium projects.</p>
+            <div class="ct-row"><div class="ct-ic" style="font-size:.75rem;font-weight:600;color:var(--gl);">Ph</div><div><div class="ct-l">Phone / WhatsApp</div><div class="ct-v"><a href="tel:+917795707706">+91 77957 07706</a><br><a href="tel:+916364229319">+91 63642 29319</a><br><a href="tel:+918970571416">+91 89705 71416</a><br><a href="tel:+919945439479">+91 99454 39479</a></div></div></div>
+            <div class="ct-row"><div class="ct-ic" style="font-size:.75rem;font-weight:600;color:var(--gl);">Em</div><div><div class="ct-l">Email</div><div class="ct-v"><a href="mailto:futureland0456@gmail.com">futureland0456@gmail.com</a></div></div></div>
+            <div class="ct-row"><div class="ct-ic" style="font-size:.65rem;font-weight:600;color:var(--gl);">Addr</div><div><div class="ct-l">Office Address</div><div class="ct-v">#560/1, 1st Floor, Sri Nanjundeshwara Nilaya,<br>Bangarpet Main Road, OTF Layout,<br>Kolar – 563101<br><span style="color:var(--mt);font-size:.8rem;">Landmark: Near Panchanga Mart, India 1 ATM</span></div></div></div>
+            <div class="ct-row"><div class="ct-ic" style="font-size:.65rem;font-weight:600;color:var(--gl);">Web</div><div><div class="ct-l">Website</div><div class="ct-v"><a href="https://www.futurelandkolar.com" target="_blank">www.futurelandkolar.com</a></div></div></div>
+            <div class="soc-row">
+              <a href="https://www.instagram.com/future_land_kolar" target="_blank" class="soc-b" title="Instagram" style="font-size:.72rem;font-weight:600;color:var(--gd);">IG</a>
+              <a href="https://www.facebook.com/share/1B6FSc9my7/" target="_blank" class="soc-b" title="Facebook" style="font-size:.72rem;font-weight:600;color:var(--gd);">FB</a>
+            </div>
+            <a href="https://maps.app.goo.gl/z5qbfs4Ut62rEsLa8" target="_blank" class="mapbtn">Find Our Office on Maps</a>
+
+            <!-- WhatsApp Contact Form -->
+            <div id="wa-form-section" style="margin-top:2rem;padding:1.8rem;border-radius:var(--rlg);background:linear-gradient(145deg,#e8f5e2,#d8ecce);box-shadow:6px 6px 14px rgba(80,140,60,.18),-4px -4px 10px rgba(255,255,255,.88),inset 1px 1px 3px rgba(255,255,255,.60);">
+              <div style="font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#3d6e2e;margin-bottom:.5rem;">Quick Connect</div>
+              <p style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:#2c2319;margin-bottom:.3rem;">Chat with us on WhatsApp</p>
+              <p style="font-size:.83rem;color:#7a6a58;line-height:1.6;margin-bottom:1.4rem;font-weight:300;">Get instant replies on plot availability, pricing, and site visit bookings.</p>
+              <div style="display:flex;flex-direction:column;gap:.9rem;">
+                <input id="wa-name" type="text" placeholder="Full Name *" style="padding:.65rem 1rem;border-radius:8px;border:1px solid #b8d4a8;font-family:'Outfit',sans-serif;font-size:.85rem;background:#fff;color:#2c2319;outline:none;">
+                <input id="wa-phone" type="tel" placeholder="Phone Number *" style="padding:.65rem 1rem;border-radius:8px;border:1px solid #b8d4a8;font-family:'Outfit',sans-serif;font-size:.85rem;background:#fff;color:#2c2319;outline:none;">
+                <input id="wa-email" type="email" placeholder="Email Address *" style="padding:.65rem 1rem;border-radius:8px;border:1px solid #b8d4a8;font-family:'Outfit',sans-serif;font-size:.85rem;background:#fff;color:#2c2319;outline:none;">
+                <textarea id="wa-message" rows="3" placeholder="Your Message *" style="padding:.65rem 1rem;border-radius:8px;border:1px solid #b8d4a8;font-family:'Outfit',sans-serif;font-size:.85rem;background:#fff;color:#2c2319;outline:none;resize:vertical;"></textarea>
+                <span id="wa-error" style="display:none;font-size:.78rem;color:#c0392b;margin-top:-.4rem;">Please fill in all fields correctly.</span>
+                <button onclick="sendToWhatsApp()" style="display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.8rem;border-radius:50px;background:linear-gradient(145deg,#25d366,#1db954);box-shadow:5px 5px 12px rgba(29,185,84,.3),-3px -3px 8px rgba(255,255,255,.7);color:white;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;align-self:flex-start;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.522 5.851L.057 23.57a.75.75 0 00.906.906l5.765-1.461A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.698-.504-5.244-1.385l-.376-.214-3.892.987.998-3.818-.234-.386A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                  Send on WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="clay hrs">
+            <div class="hrs-t">Business Hours</div>
+            <div class="hrs-r"><span class="hrs-d">Monday – Friday</span><span class="hrs-tm">7:00 AM – 7:30 PM</span></div>
+            <div class="hrs-r"><span class="hrs-d">Saturday &amp; Sunday</span><span class="hrs-tm">7:00 AM – 9:00 PM</span></div>
+          </div>
+        </div>
+
+        <div class="ps-side">
+          <p class="ps-t">Our Projects</p>
+          <div class="psc psc-e" onclick="goto('elixir')">
+            <div class="psc-lbl">Project One · DTCP Approved</div>
+            <div class="psc-nm">Elixir</div>
+            <p class="psc-ds">Premium gated villa plots near Narasapura Industrial Area. 80% bank loan available. Clear Vaasthu design. Collaboration with GEOWN.</p>
+            <div class="psc-go">Explore Project <span>→</span></div>
+          </div>
+          <div class="psc psc-t2" onclick="goto('thaayi')">
+            <div class="psc-lbl">Project Two · Eco-Luxury · Future Land 2.0</div>
+            <div class="psc-nm">Thaayi Beru</div>
+            <p class="psc-ds">Mother Root — a holistic eco-luxury wellness community behind Tata Electronics, Kolar District. Organic living. Ayurvedic healing. Sustainable design.</p>
+            <div class="psc-go">Explore Project <span>→</span></div>
+          </div>
+          <div class="clay" style="padding:2rem;border-radius:var(--rxl);margin-top:.5rem;">
+            <div style="font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Project Locations</div>
+            <div style="margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(180,155,120,.14);">
+              <div style="font-size:.85rem;font-weight:600;color:var(--br);margin-bottom:.3rem;">Elixir</div>
+              <a href="https://maps.app.goo.gl/eurQDJzUNaurgoPN6" target="_blank" style="font-size:.8rem;color:var(--gold);text-decoration:none;letter-spacing:.04em;">View on Google Maps →</a>
+            </div>
+            <div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--br);margin-bottom:.3rem;">Thaayi Beru</div>
+              <a href="https://goo.gl/maps/g6a9LLWxDaFmU15b8" target="_blank" style="font-size:.8rem;color:var(--grl);text-decoration:none;letter-spacing:.04em;">View on Google Maps →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fg">
+      <div><div style="display:flex;align-items:center;gap:.6rem;"><div class="nb-logo"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L13 4.5V9.5L7 13L1 9.5V4.5Z" stroke="white" stroke-width="1.2" fill="none"/><circle cx="7" cy="7" r="2" fill="white"/></svg></div><span style="font-family:'Playfair Display',serif;font-size:1.12rem;color:white;"><em style="color:var(--gl);font-style:normal;">Future</em> Land</span></div><p class="ft-desc">Building Prosperity, One Investment At A Time — Kolar, Karnataka.</p></div>
+      <div><div class="ft-ct">Navigate</div><a class="fl2" onclick="goto('home')">Home</a><a class="fl2" onclick="goto('about')">About</a><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a><a class="fl2" onclick="goto('contact')">Contact</a></div>
+      <div><div class="ft-ct">Projects</div><a class="fl2" onclick="goto('elixir')">Elixir</a><a class="fl2" onclick="goto('thaayi')">Thaayi Beru</a></div>
+      <div><div class="ft-ct">Contact</div><p class="fl2" style="cursor:default;">+91 77957 07706</p><p class="fl2" style="cursor:default;">futureland0456@gmail.com</p><p class="fl2" style="cursor:default;">Kolar – 563101</p></div>
+    </div>
+    <div class="fb"><p class="fb-c">© 2025 Future Land. All rights reserved.</p><p class="fb-t">"Building Prosperity, One Investment At A Time"</p></div>
+  </footer>
+</div>
+
+<script>
+function goto(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('.nl').forEach(l=>l.classList.remove('act'));
+  const nl=document.getElementById('nl-'+id);
+  if(nl) nl.classList.add('act');
+  // If navigating to contact from home WhatsApp button, scroll to WA form
+  if(id==='contact' && window._scrollToWaForm){
+    window._scrollToWaForm = false;
+    setTimeout(()=>{
+      const el = document.getElementById('wa-form-section');
+      if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 500);
+  }
+}
+function gotoContactWA(){
+  window._scrollToWaForm = true;
+  goto('contact');
+}
+function toggleMob(){document.getElementById('mob').classList.toggle('open');}
+document.getElementById('nl-home').classList.add('act');
+
+// Show tooltip briefly on load to draw attention to FAB
+setTimeout(()=>{
+  const fab = document.getElementById('waFab');
+  if(fab){ fab.classList.add('show-tip'); setTimeout(()=>fab.classList.remove('show-tip'),3000); }
+}, 2500);
+
+function sendToWhatsApp() {
+  const name    = document.getElementById('wa-name').value.trim();
+  const phone   = document.getElementById('wa-phone').value.trim();
+  const email   = document.getElementById('wa-email').value.trim();
+  const message = document.getElementById('wa-message').value.trim();
+  const errEl   = document.getElementById('wa-error');
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!name || !phone || !emailValid || !message) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+  const text = `Hi! I'd like to enquire about a plot.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n\n*Message:*\n${message}`;
+  window.open('https://wa.me/917795707706?text=' + encodeURIComponent(text), '_blank');
+}
+</script>
+</body>
+</html>
