@@ -355,6 +355,159 @@ footer{margin:4rem 2rem 2rem;border-radius:var(--rxl);background:linear-gradient
   .wa-fab-btn{width:54px;height:54px;}
 }
 
+/* ─── BROCHURE DOWNLOAD SECTION ─── */
+.broch-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.8rem;
+  margin-top:3rem;
+}
+.broch-card{
+  border-radius:var(--rxl);
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.broch-card:hover{
+  transform:translateY(-6px);
+}
+.broch-card-e{
+  background:linear-gradient(145deg,#1a1408,#2c200a);
+  box-shadow:12px 12px 28px rgba(30,20,10,.45),-6px -6px 16px rgba(255,255,255,.05);
+}
+.broch-card-t{
+  background:linear-gradient(145deg,#0c1a08,#18300e);
+  box-shadow:12px 12px 28px rgba(10,25,8,.42),-6px -6px 16px rgba(255,255,255,.04);
+}
+.broch-card:hover.broch-card-e{
+  box-shadow:18px 18px 38px rgba(30,20,10,.52),-8px -8px 20px rgba(255,255,255,.06);
+}
+.broch-card:hover.broch-card-t{
+  box-shadow:18px 18px 38px rgba(10,25,8,.50),-8px -8px 20px rgba(255,255,255,.05);
+}
+.broch-preview{
+  height:180px;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.broch-preview-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+.broch-card:hover .broch-preview-img{transform:scale(1.06);}
+.broch-preview-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:.6rem;
+  position:relative;
+}
+.broch-card-e .broch-preview-placeholder{background:linear-gradient(160deg,#241a0a,#1a1408);}
+.broch-card-t .broch-preview-placeholder{background:linear-gradient(160deg,#0e200a,#0c1a08);}
+.broch-preview-label{
+  font-family:'Playfair Display',serif;
+  font-size:3.2rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.broch-card-e .broch-preview-label{color:rgba(201,169,110,.18);}
+.broch-card-t .broch-preview-label{color:rgba(90,150,69,.18);}
+.broch-preview-badge{
+  position:absolute;top:1rem;left:1rem;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:.3rem .85rem;border-radius:50px;backdrop-filter:blur(8px);
+}
+.broch-card-e .broch-preview-badge{background:rgba(201,169,110,.16);color:var(--gl);border:1px solid rgba(201,169,110,.28);}
+.broch-card-t .broch-preview-badge{background:rgba(90,150,69,.18);color:#7cc870;border:1px solid rgba(90,150,69,.28);}
+.broch-preview-pdf{
+  position:absolute;top:1rem;right:1rem;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:8px;
+  padding:.3rem .65rem;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  backdrop-filter:blur(8px);
+}
+.broch-body{
+  padding:1.8rem 2rem;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+.broch-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;}
+.broch-card-e .broch-tag{color:var(--gl);}
+.broch-card-t .broch-tag{color:#7cc870;}
+.broch-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.85rem;font-weight:600;
+  color:#fff;line-height:1.05;
+}
+.broch-desc{font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.65;font-weight:300;}
+.broch-meta{
+  display:flex;align-items:center;gap:1.2rem;
+  margin-top:.2rem;
+}
+.broch-meta-item{
+  display:flex;align-items:center;gap:.38rem;
+  font-size:.7rem;letter-spacing:.06em;color:rgba(255,255,255,.28);
+}
+.broch-meta-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2);}
+.broch-dl-btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.82rem 1.6rem;
+  border-radius:50px;
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:.74rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;
+  transition:all .28s ease;
+  align-self:flex-start;
+  margin-top:.4rem;
+}
+.broch-card-e .broch-dl-btn{
+  background:linear-gradient(145deg,#c9a96e,#a07840);
+  box-shadow:5px 5px 14px rgba(140,100,40,.38),-3px -3px 8px rgba(255,220,140,.10);
+  color:#1a1000;
+}
+.broch-card-e .broch-dl-btn:hover{
+  background:linear-gradient(145deg,#dfc07e,#b58a50);
+  box-shadow:7px 7px 18px rgba(140,100,40,.48),-4px -4px 10px rgba(255,220,140,.14);
+  transform:translateY(-2px);
+}
+.broch-card-t .broch-dl-btn{
+  background:linear-gradient(145deg,#5a9645,#3d6e2e);
+  box-shadow:5px 5px 14px rgba(50,120,30,.38),-3px -3px 8px rgba(120,230,100,.08);
+  color:#e8f5e2;
+}
+.broch-card-t .broch-dl-btn:hover{
+  background:linear-gradient(145deg,#6ab055,#4a8038);
+  box-shadow:7px 7px 18px rgba(50,120,30,.48),-4px -4px 10px rgba(120,230,100,.12);
+  transform:translateY(-2px);
+}
+.broch-dl-icon{
+  width:16px;height:16px;flex-shrink:0;
+  animation:none;
+}
+.broch-dl-btn:hover .broch-dl-icon{animation:dl-bounce .5s ease;}
+@keyframes dl-bounce{
+  0%,100%{transform:translateY(0);}
+  40%{transform:translateY(3px);}
+  70%{transform:translateY(-2px);}
+}
+.broch-section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;
+}
+@media(max-width:640px){
+  .broch-wrap{grid-template-columns:1fr;}
+  .broch-section-head{flex-direction:column;align-items:flex-start;}
+}
+
 @media(max-width:1024px){
   .pgrid,.ab-split,.el-split,.th-split,.ms-split,.ct-grid,.loc-g,.th-3col{grid-template-columns:1fr;gap:2.5rem;}
   .vgrid{grid-template-columns:1fr 1fr;}
@@ -524,6 +677,95 @@ footer{margin:4rem 2rem 2rem;border-radius:var(--rxl);background:linear-gradient
       <div class="trust-band ani">
         <p class="tb-q">"<strong>Building Prosperity,</strong><br>One Investment At A Time"</p>
         <p class="tb-s">Future Land · Kolar, Karnataka</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROCHURE DOWNLOAD SECTION -->
+  <section class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <div class="broch-section-head ani">
+        <div>
+          <span class="eyebrow gld">Project Brochures</span>
+          <h2 class="h2">Download &amp; <em>Explore</em></h2>
+          <div class="cdiv"></div>
+          <p class="body-t" style="max-width:460px;">Get complete project details, site plans, amenities, and pricing — everything you need to make your investment decision.</p>
+        </div>
+        <div style="text-align:right;">
+          <p style="font-size:.78rem;color:var(--mt);line-height:1.7;font-weight:300;">PDF &middot; ~2 MB each<br>Free to download</p>
+        </div>
+      </div>
+
+      <div class="broch-wrap ani d2">
+
+        <!-- Elixir Brochure -->
+        <div class="broch-card broch-card-e">
+          <div class="broch-preview">
+            <div class="broch-preview-placeholder">
+              <span class="broch-preview-label">Elixir</span>
+            </div>
+            <span class="broch-preview-badge">DTCP Approved</span>
+            <span class="broch-preview-pdf">PDF</span>
+          </div>
+          <div class="broch-body">
+            <span class="broch-tag">Project One &middot; Premium Villa Plots</span>
+            <div class="broch-title">Elixir</div>
+            <p class="broch-desc">Gated community villa plots near Narasapura Industrial Area &mdash; complete project overview, site plan, amenities, connectivity &amp; pricing details.</p>
+            <div class="broch-meta">
+              <span class="broch-meta-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF Document
+              </span>
+              <span class="broch-meta-dot"></span>
+              <span class="broch-meta-item">~2 MB</span>
+              <span class="broch-meta-dot"></span>
+              <span class="broch-meta-item">English</span>
+            </div>
+            <a href="elixir-brochure.pdf" download="Elixir-FutureLand-Brochure.pdf" class="broch-dl-btn">
+              <svg class="broch-dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Elixir Brochure
+            </a>
+          </div>
+        </div>
+
+        <!-- Thaayi Beru Brochure -->
+        <div class="broch-card broch-card-t">
+          <div class="broch-preview">
+            <div class="broch-preview-placeholder">
+              <span class="broch-preview-label">Thaayi</span>
+            </div>
+            <span class="broch-preview-badge">Eco-Luxury</span>
+            <span class="broch-preview-pdf">PDF</span>
+          </div>
+          <div class="broch-body">
+            <span class="broch-tag">Project Two &middot; Wellness Community</span>
+            <div class="broch-title">Thaayi Beru</div>
+            <p class="broch-desc">&#3239;&#3246;&#3214;&#3265; &#3232;&#3263;&#3248;&#3263; &mdash; Mother Root. Eco-luxury organic living behind Tata Electronics &mdash; wellness philosophy, amenities, location &amp; investment highlights.</p>
+            <div class="broch-meta">
+              <span class="broch-meta-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF Document
+              </span>
+              <span class="broch-meta-dot"></span>
+              <span class="broch-meta-item">~2 MB</span>
+              <span class="broch-meta-dot"></span>
+              <span class="broch-meta-item">English</span>
+            </div>
+            <a href="thaayi-brochure.pdf" download="ThaayiBeru-FutureLand-Brochure.pdf" class="broch-dl-btn">
+              <svg class="broch-dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Thaayi Beru Brochure
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
